@@ -1,0 +1,19 @@
+<h1>user html</h1>
+
+
+<form action="http://127.0.0.1:8000/post">
+    <input type="submit" value="Post list" />
+</form>
+</br>
+<form action="http://127.0.0.1:8000">
+    <input type="submit" value="Exit" />
+</form>
+
+{% for Post in Posts %}
+    <tr class='success'>
+        <h1>{{ Post.title }}</h1>
+        <p>{{ Post.body }}</p>
+        <img className='image' src={{Post.image.url}}/>
+        <h2>{{ Post.author }}, author for post.</h2>
+    </tr>
+{% endfor %}

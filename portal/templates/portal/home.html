@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Post list</title>
+</head>
+<body>
+<h1 class="title">Post</h1>
+{% for Post in Posts %}
+<div class="post_list">
+    <tr class='success'>
+        <h1 class="title_list">{{ Post.title }}</h1>
+        <p>{{ Post.body }}</p>
+        <img class='image_list' src={{Post.image.url}}/>
+        <h2>{{ Post.author }}, author for post.</h2>
+    </tr>
+</div>
+{% endfor %}
+<style>
+
+    .title{
+    flex-direction: row;
+    display:flex;
+    justify-content:space-between;
+    text-align: center;
+    }
+    .post_list{
+    flex-direction: row;
+    display:flex;
+    justify-content:space-between;
+    text-align: center;
+
+    }
+    .image_list{
+    weight:940px;
+    height:700px;
+    }
+</style>
+</body>
+</html>

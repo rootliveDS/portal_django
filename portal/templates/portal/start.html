@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portal</title>
+</head>
+<body>
+{% if user.is_superuser %}
+        <p>Your superuser status</p>
+    <a href="{% url 'admin:index' %}">Admin</a>
+    {% endif %}
+<h1>Hello, {{ user.username|default:'Guest' }}</h1>
+
+
+{% if user.is_authenticated %}
+    <h1>Portal</h1>
+    <form action="{% url 'post' %}">
+        <input type="submit" value="Post list" />
+    </form>
+    <form action="{% url 'logout' %}">
+        <input type="submit" value="Logout" />
+    </form>
+{% else %}
+    <p>Access denied</p>
+    <form action="{% url 'login' %}">
+        <input type="submit" value="Login" />
+    </form>
+{% endif %}
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
